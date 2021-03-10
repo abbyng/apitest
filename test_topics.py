@@ -10,7 +10,8 @@ def test_topic_index_page():
         "mdrender":"false"
     }
     r= requests.get(base_url+"/topics",params=query_parmas)
-    print(r.status_code)
-    print(r.json())
+    assert r.status_code == 200
+    assert r.json()['success'] == True
+
 
 test_topic_index_page()
